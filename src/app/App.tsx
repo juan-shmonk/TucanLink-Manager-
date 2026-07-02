@@ -450,7 +450,7 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
             <span className="text-white font-bold tracking-tight" style={{ fontFamily: FONT_HEADING }}>TucanLink</span>
           </div>
           <div className="flex items-center gap-6">
-            <a href="#features" className="text-gray-400 hover:text-white text-sm transition-colors hidden sm:block">Herramientas docentes</a>
+            <a href="#features" className="text-gray-400 hover:text-white text-sm transition-colors hidden sm:block">Recursos</a>
             <a href="#how" className="text-gray-400 hover:text-white text-sm transition-colors hidden sm:block">Funcionamiento</a>
             <Btn size="sm" onClick={onLogin}><Key className="w-3.5 h-3.5" />Acceder</Btn>
           </div>
@@ -466,23 +466,23 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
           <div className="relative max-w-lg">
             <div className="inline-flex items-center gap-2 border border-emerald-500/30 bg-emerald-500/8 rounded-full px-3 py-1 mb-6">
               <PulseDot color="green" />
-              <span className="text-emerald-400 text-xs font-medium" style={{ fontFamily: FONT_MONO }}>Entorno academico activo</span>
+              <span className="text-emerald-400 text-xs font-medium" style={{ fontFamily: FONT_MONO }}>Instituto Tecnologico de Cancun</span>
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight" style={{ fontFamily: FONT_HEADING }}>
-              Gestiona tus<br /><span className="text-emerald-400">recursos academicos</span><br />por grupo
+              Accede a tus<br /><span className="text-emerald-400">recursos de clase</span><br />en un solo lugar
             </h1>
             <p className="text-gray-400 mt-5 text-lg leading-relaxed">
-              Organiza materiales por materia, comparte enlaces con tus alumnos y consulta
-              evidencia clara de uso para dar seguimiento a cada grupo.
+              TucanLink reune enlaces publicos de internet seleccionados para tus materias,
+              practicas y actividades academicas del Instituto Tecnologico de Cancun.
             </p>
             <div className="flex flex-wrap items-center gap-3 mt-8">
               <Btn size="lg" onClick={onLogin}><ArrowRight className="w-4 h-4" />Entrar al sistema</Btn>
               <button className="flex items-center gap-2 text-gray-500 hover:text-gray-300 text-sm transition-colors">
-                <Play className="w-4 h-4" />Vista docente
+                <Play className="w-4 h-4" />Conoce el portal
               </button>
             </div>
             <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/8">
-              {[{ v: "42", l: "Materias activas" }, { v: "1,892", l: "Recursos curados" }, { v: "67.2k", l: "Consultas registradas" }].map(s => (
+              {[{ v: "42", l: "Materias" }, { v: "1,892", l: "Recursos publicos" }, { v: "24/7", l: "Disponibilidad" }].map(s => (
                 <div key={s.l}>
                   <p className="text-2xl font-bold text-white" style={{ fontFamily: FONT_HEADING }}>{s.v}</p>
                   <p className="text-xs text-gray-500 mt-0.5">{s.l}</p>
@@ -504,12 +504,12 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <PulseDot color="green" />
-                  <span className="text-emerald-400 text-xs" style={{ fontFamily: FONT_MONO }}>4 grupos activos</span>
+                  <span className="text-emerald-400 text-xs" style={{ fontFamily: FONT_MONO }}>portal estudiantil</span>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div className="grid grid-cols-3 gap-2">
-                  {[{ l: "Grupos", v: "4", c: "text-emerald-600" }, { l: "Recursos", v: "7", c: "text-blue-600" }, { l: "Consultas/dia", v: "94", c: "text-violet-600" }].map(s => (
+                  {[{ l: "Materias", v: "4", c: "text-emerald-600" }, { l: "Enlaces", v: "7", c: "text-blue-600" }, { l: "Categorias", v: "6", c: "text-violet-600" }].map(s => (
                     <div key={s.l} className="bg-gray-50 rounded-lg p-3 text-center border border-gray-100">
                       <p className={cn("text-xl font-bold", s.c)} style={{ fontFamily: FONT_HEADING }}>{s.v}</p>
                       <p className="text-xs text-gray-500 mt-0.5">{s.l}</p>
@@ -518,22 +518,26 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
                 </div>
                 {/* Mini activity feed */}
                 <div className="space-y-2">
-                  {mockHistory.slice(0, 3).map(h => (
+                  {[
+                    { id: "r1", title: "Cisco Skills for All", subject: "Redes" },
+                    { id: "r2", title: "Packet Tracer", subject: "Simulacion" },
+                    { id: "r3", title: "Wireshark User Guide", subject: "Protocolos" },
+                  ].map(h => (
                     <div key={h.id} className="flex items-center gap-2.5 py-1.5 border-b border-gray-100 last:border-0">
                       <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
                         <ExternalLink className="w-3 h-3 text-emerald-600" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-xs font-medium text-gray-800 truncate">{h.student.split(" ")[0]}</p>
-                        <p className="text-xs text-gray-400 truncate">{h.link}</p>
+                        <p className="text-xs font-medium text-gray-800 truncate">{h.title}</p>
+                        <p className="text-xs text-gray-400 truncate">{h.subject}</p>
                       </div>
-                      <span className="text-xs text-gray-400" style={{ fontFamily: FONT_MONO }}>{h.time}</span>
+                      <span className="text-xs text-gray-400" style={{ fontFamily: FONT_MONO }}>Abrir</span>
                     </div>
                   ))}
                 </div>
                 {/* Mini chart */}
                 <div className="bg-gray-50 rounded-lg p-3 border border-gray-100">
-                  <p className="text-xs font-semibold text-gray-600 mb-2">Actividad academica - ultima semana</p>
+                  <p className="text-xs font-semibold text-gray-600 mb-2">Recursos destacados de la semana</p>
                   <ResponsiveContainer width="100%" height={60}>
                     <AreaChart data={weekData}>
                       <defs>
@@ -556,17 +560,17 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
       <section id="features" className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold" style={{ fontFamily: FONT_HEADING }}>Herramientas para maestros</h2>
-            <p className="text-muted-foreground mt-2 max-w-lg mx-auto text-sm">Centraliza enlaces, materiales y seguimiento por grupo desde un espacio academico sencillo.</p>
+            <h2 className="text-3xl font-bold" style={{ fontFamily: FONT_HEADING }}>Recursos para tus materias</h2>
+            <p className="text-muted-foreground mt-2 max-w-lg mx-auto text-sm">Encuentra enlaces publicos utiles para estudiar, practicar y complementar lo visto en clase.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { icon: <Signal className="w-5 h-5" />, t: "Disponibilidad de recursos", d: "Revisa si los enlaces de clase estan disponibles antes de compartirlos con tus estudiantes.", c: "green" },
-              { icon: <Activity className="w-5 h-5" />, t: "Seguimiento academico", d: "Consulta que estudiantes revisaron cada material, en que momento y con que frecuencia.", c: "blue" },
-              { icon: <Key className="w-5 h-5" />, t: "Codigos de grupo", d: "Invita alumnos a una materia con codigos temporales y conserva el acceso ordenado por clase.", c: "violet" },
-              { icon: <Layers className="w-5 h-5" />, t: "Materias y secciones", d: "Separa recursos por materia, semestre o grupo para evitar confusiones entre tus cursos.", c: "amber" },
-              { icon: <Shield className="w-5 h-5" />, t: "Acceso institucional", d: "Cada usuario entra con su rol correspondiente: estudiante, maestro o administrador.", c: "green" },
-              { icon: <BarChart2 className="w-5 h-5" />, t: "Evidencia de consulta", d: "Identifica materiales mas usados, participacion semanal y alumnos que requieren seguimiento.", c: "blue" },
+              { icon: <Signal className="w-5 h-5" />, t: "Enlaces confiables", d: "Accede a sitios publicos de apoyo para tus tareas, laboratorios y practicas.", c: "green" },
+              { icon: <Activity className="w-5 h-5" />, t: "Material por materia", d: "Consulta recursos organizados segun tus clases para encontrar lo que necesitas mas rapido.", c: "blue" },
+              { icon: <Key className="w-5 h-5" />, t: "Entrada con codigo", d: "Usa tu matricula y el codigo de tu grupo para ver los recursos correspondientes a tu curso.", c: "violet" },
+              { icon: <Layers className="w-5 h-5" />, t: "Contenido organizado", d: "Encuentra guias, plataformas, documentacion y herramientas separadas por tema.", c: "amber" },
+              { icon: <Shield className="w-5 h-5" />, t: "Acceso institucional", d: "Ingresa desde el portal del Instituto Tecnologico de Cancun con tus datos academicos.", c: "green" },
+              { icon: <BarChart2 className="w-5 h-5" />, t: "Apoyo al aprendizaje", d: "Refuerza tus conocimientos con recursos externos disponibles en internet.", c: "blue" },
             ].map(f => {
               const ic: Record<string, string> = { green: "bg-emerald-50 text-emerald-600", blue: "bg-blue-50 text-blue-600", violet: "bg-violet-50 text-violet-600", amber: "bg-amber-50 text-amber-600" };
               return (
@@ -584,13 +588,13 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
       {/* How it works */}
       <section id="how" className="py-20 px-6 bg-gray-50">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-3" style={{ fontFamily: FONT_HEADING }}>Flujo academico</h2>
-          <p className="text-center text-muted-foreground text-sm mb-12">Del plan de clase al seguimiento del alumno en tres pasos</p>
+          <h2 className="text-3xl font-bold text-center mb-3" style={{ fontFamily: FONT_HEADING }}>Como usar TucanLink</h2>
+          <p className="text-center text-muted-foreground text-sm mb-12">Accede a tus recursos academicos en tres pasos</p>
           <div className="grid md:grid-cols-3 gap-8 relative">
             {[
-              { n: "01", t: "El maestro prepara la materia", d: "Crea el grupo, agrega los recursos que usara en clase y define el codigo de acceso para sus alumnos." },
-              { n: "02", t: "Los alumnos se integran", d: "Cada estudiante entra con el codigo del grupo y encuentra los materiales autorizados para su curso." },
-              { n: "03", t: "Seguimiento de aprendizaje", d: "El maestro revisa actividad, consultas y recursos mas visitados para ajustar su clase con evidencia." },
+              { n: "01", t: "Inicia sesion", d: "Entra con tu matricula institucional y el codigo asignado a tu grupo." },
+              { n: "02", t: "Elige tu materia", d: "Selecciona el grupo o curso donde necesitas consultar materiales de apoyo." },
+              { n: "03", t: "Abre el recurso", d: "Visita enlaces publicos de internet relacionados con tus clases, practicas y proyectos." },
             ].map((s, i) => (
               <div key={s.n} className="relative">
                 <div className="flex items-start gap-3">
@@ -611,12 +615,12 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
       {/* Roles */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-10" style={{ fontFamily: FONT_HEADING }}>Roles dentro del entorno academico</h2>
+          <h2 className="text-3xl font-bold text-center mb-10" style={{ fontFamily: FONT_HEADING }}>Lo que encontraras en el portal</h2>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { role: "Estudiante", icon: <BookOpen className="w-6 h-6" />, bg: "border-emerald-200 bg-emerald-50", ic: "bg-emerald-500 text-white", items: ["Entrar con matricula y codigo", "Unirse a grupos de clase", "Consultar materiales autorizados", "Revisar su historial personal"] },
-              { role: "Maestro", icon: <GraduationCap className="w-6 h-6" />, bg: "border-indigo-200 bg-indigo-50", ic: "bg-indigo-500 text-white", items: ["Crear materias y grupos", "Compartir enlaces academicos", "Verificar disponibilidad de recursos", "Dar seguimiento a sus alumnos"] },
-              { role: "Administrador", icon: <Shield className="w-6 h-6" />, bg: "border-gray-200 bg-gray-50", ic: "bg-gray-700 text-white", items: ["Administrar usuarios institucionales", "Asignar permisos por rol", "Consultar reportes generales", "Configurar datos de la escuela"] },
+              { role: "Recursos de clase", icon: <BookOpen className="w-6 h-6" />, bg: "border-emerald-200 bg-emerald-50", ic: "bg-emerald-500 text-white", items: ["Guias y documentacion publica", "Herramientas para practicar", "Plataformas educativas externas", "Material complementario por tema"] },
+              { role: "Acceso sencillo", icon: <GraduationCap className="w-6 h-6" />, bg: "border-indigo-200 bg-indigo-50", ic: "bg-indigo-500 text-white", items: ["Ingreso con matricula", "Codigo de grupo", "Recursos separados por materia", "Navegacion rapida desde el portal"] },
+              { role: "Apoyo academico", icon: <Shield className="w-6 h-6" />, bg: "border-gray-200 bg-gray-50", ic: "bg-gray-700 text-white", items: ["Contenido para tareas", "Referencias para proyectos", "Practicas de laboratorio", "Consulta desde cualquier dispositivo"] },
             ].map(r => (
               <div key={r.role} className={cn("rounded-xl border-2 p-5", r.bg)}>
                 <div className={cn("w-11 h-11 rounded-xl flex items-center justify-center mb-3", r.ic)}>{r.icon}</div>
@@ -639,10 +643,10 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
         <div className="max-w-2xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <PulseDot color="green" />
-            <span className="text-emerald-400 text-xs" style={{ fontFamily: FONT_MONO }}>Portal academico disponible</span>
+            <span className="text-emerald-400 text-xs" style={{ fontFamily: FONT_MONO }}>Portal estudiantil disponible</span>
           </div>
-          <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: FONT_HEADING }}>Accede a tu panel docente</h2>
-          <p className="text-gray-400 mb-8 text-sm">Inicia sesion con tu cuenta institucional para gestionar tus grupos y recursos.</p>
+          <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: FONT_HEADING }}>Entra a tus recursos academicos</h2>
+          <p className="text-gray-400 mb-8 text-sm">Inicia sesion con tu matricula del Instituto Tecnologico de Cancun y el codigo de tu grupo.</p>
           <Btn size="lg" onClick={onLogin}><ArrowRight className="w-4 h-4" />Entrar al sistema</Btn>
         </div>
       </section>
@@ -653,7 +657,7 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
             <Network className="w-4 h-4 text-emerald-500" />
             <span className="text-gray-500 text-sm" style={{ fontFamily: FONT_HEADING }}>TucanLink</span>
           </div>
-          <p className="text-gray-700 text-xs">2024 TucanLink - Plataforma academica para maestros y recursos de clase</p>
+          <p className="text-gray-700 text-xs">2024 TucanLink - Portal de recursos publicos para estudiantes del Instituto Tecnologico de Cancun</p>
         </div>
       </footer>
     </div>
