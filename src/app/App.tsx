@@ -450,7 +450,7 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
             <span className="text-white font-bold tracking-tight" style={{ fontFamily: FONT_HEADING }}>TucanLink</span>
           </div>
           <div className="flex items-center gap-6">
-            <a href="#features" className="text-gray-400 hover:text-white text-sm transition-colors hidden sm:block">Características</a>
+            <a href="#features" className="text-gray-400 hover:text-white text-sm transition-colors hidden sm:block">Herramientas docentes</a>
             <a href="#how" className="text-gray-400 hover:text-white text-sm transition-colors hidden sm:block">Funcionamiento</a>
             <Btn size="sm" onClick={onLogin}><Key className="w-3.5 h-3.5" />Acceder</Btn>
           </div>
@@ -466,23 +466,23 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
           <div className="relative max-w-lg">
             <div className="inline-flex items-center gap-2 border border-emerald-500/30 bg-emerald-500/8 rounded-full px-3 py-1 mb-6">
               <PulseDot color="green" />
-              <span className="text-emerald-400 text-xs font-medium" style={{ fontFamily: FONT_MONO }}>Sistema operativo · v2.4.1</span>
+              <span className="text-emerald-400 text-xs font-medium" style={{ fontFamily: FONT_MONO }}>Entorno academico activo</span>
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight" style={{ fontFamily: FONT_HEADING }}>
-              Monitoreo de<br /><span className="text-emerald-400">recursos educativos</span><br />en red
+              Gestiona tus<br /><span className="text-emerald-400">recursos academicos</span><br />por grupo
             </h1>
             <p className="text-gray-400 mt-5 text-lg leading-relaxed">
-              Controla quién accede a qué recurso externo, cuándo y cuántas veces.
-              Auditoría completa para entornos universitarios.
+              Organiza materiales por materia, comparte enlaces con tus alumnos y consulta
+              evidencia clara de uso para dar seguimiento a cada grupo.
             </p>
             <div className="flex flex-wrap items-center gap-3 mt-8">
               <Btn size="lg" onClick={onLogin}><ArrowRight className="w-4 h-4" />Entrar al sistema</Btn>
               <button className="flex items-center gap-2 text-gray-500 hover:text-gray-300 text-sm transition-colors">
-                <Play className="w-4 h-4" />Ver demo
+                <Play className="w-4 h-4" />Vista docente
               </button>
             </div>
             <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/8">
-              {[{ v: "9,840", l: "Estudiantes" }, { v: "261", l: "Profesores" }, { v: "67.2k", l: "Accesos auditados" }].map(s => (
+              {[{ v: "42", l: "Materias activas" }, { v: "1,892", l: "Recursos curados" }, { v: "67.2k", l: "Consultas registradas" }].map(s => (
                 <div key={s.l}>
                   <p className="text-2xl font-bold text-white" style={{ fontFamily: FONT_HEADING }}>{s.v}</p>
                   <p className="text-xs text-gray-500 mt-0.5">{s.l}</p>
@@ -500,16 +500,16 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
               <div className="bg-[#1F2937] px-4 py-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Network className="w-4 h-4 text-emerald-400" />
-                  <span className="text-white text-xs font-bold" style={{ fontFamily: FONT_MONO }}>nettrack.edu.mx</span>
+                  <span className="text-white text-xs font-bold" style={{ fontFamily: FONT_MONO }}>tucanlink.edu.mx</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <PulseDot color="green" />
-                  <span className="text-emerald-400 text-xs" style={{ fontFamily: FONT_MONO }}>4 activos</span>
+                  <span className="text-emerald-400 text-xs" style={{ fontFamily: FONT_MONO }}>4 grupos activos</span>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div className="grid grid-cols-3 gap-2">
-                  {[{ l: "Grupos", v: "4", c: "text-emerald-600" }, { l: "Recursos", v: "7", c: "text-blue-600" }, { l: "Accesos/día", v: "94", c: "text-violet-600" }].map(s => (
+                  {[{ l: "Grupos", v: "4", c: "text-emerald-600" }, { l: "Recursos", v: "7", c: "text-blue-600" }, { l: "Consultas/dia", v: "94", c: "text-violet-600" }].map(s => (
                     <div key={s.l} className="bg-gray-50 rounded-lg p-3 text-center border border-gray-100">
                       <p className={cn("text-xl font-bold", s.c)} style={{ fontFamily: FONT_HEADING }}>{s.v}</p>
                       <p className="text-xs text-gray-500 mt-0.5">{s.l}</p>
@@ -533,7 +533,7 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
                 </div>
                 {/* Mini chart */}
                 <div className="bg-gray-50 rounded-lg p-3 border border-gray-100">
-                  <p className="text-xs font-semibold text-gray-600 mb-2">Accesos — última semana</p>
+                  <p className="text-xs font-semibold text-gray-600 mb-2">Actividad academica - ultima semana</p>
                   <ResponsiveContainer width="100%" height={60}>
                     <AreaChart data={weekData}>
                       <defs>
@@ -556,17 +556,17 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
       <section id="features" className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold" style={{ fontFamily: FONT_HEADING }}>Funcionalidades del sistema</h2>
-            <p className="text-muted-foreground mt-2 max-w-lg mx-auto text-sm">Todo lo que un profesor universitario necesita para gestionar el acceso a recursos externos.</p>
+            <h2 className="text-3xl font-bold" style={{ fontFamily: FONT_HEADING }}>Herramientas para maestros</h2>
+            <p className="text-muted-foreground mt-2 max-w-lg mx-auto text-sm">Centraliza enlaces, materiales y seguimiento por grupo desde un espacio academico sencillo.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { icon: <Signal className="w-5 h-5" />, t: "Monitoreo de estado", d: "Verifica en tiempo real si cada recurso externo está disponible, degradado o fuera de línea antes de que el alumno lo abra.", c: "green" },
-              { icon: <Activity className="w-5 h-5" />, t: "Auditoría completa", d: "Registra cada acceso: quién, qué, cuándo, desde qué IP. Historial permanente consultable por el profesor.", c: "blue" },
-              { icon: <Key className="w-5 h-5" />, t: "Códigos temporales", d: "Genera códigos de grupo con expiración automática. Solo los alumnos autorizados acceden a los recursos.", c: "violet" },
-              { icon: <Layers className="w-5 h-5" />, t: "Grupos por materia", d: "Organiza alumnos en grupos independientes por materia, semestre o sección. Recursos aislados por grupo.", c: "amber" },
-              { icon: <Shield className="w-5 h-5" />, t: "Control por roles", d: "Tres niveles de acceso: alumno, profesor y administrador. Cada rol ve únicamente lo que le corresponde.", c: "green" },
-              { icon: <BarChart2 className="w-5 h-5" />, t: "Estadísticas de uso", d: "Visualiza qué recursos son más utilizados, tendencias semanales y estudiantes más activos.", c: "blue" },
+              { icon: <Signal className="w-5 h-5" />, t: "Disponibilidad de recursos", d: "Revisa si los enlaces de clase estan disponibles antes de compartirlos con tus estudiantes.", c: "green" },
+              { icon: <Activity className="w-5 h-5" />, t: "Seguimiento academico", d: "Consulta que estudiantes revisaron cada material, en que momento y con que frecuencia.", c: "blue" },
+              { icon: <Key className="w-5 h-5" />, t: "Codigos de grupo", d: "Invita alumnos a una materia con codigos temporales y conserva el acceso ordenado por clase.", c: "violet" },
+              { icon: <Layers className="w-5 h-5" />, t: "Materias y secciones", d: "Separa recursos por materia, semestre o grupo para evitar confusiones entre tus cursos.", c: "amber" },
+              { icon: <Shield className="w-5 h-5" />, t: "Acceso institucional", d: "Cada usuario entra con su rol correspondiente: estudiante, maestro o administrador.", c: "green" },
+              { icon: <BarChart2 className="w-5 h-5" />, t: "Evidencia de consulta", d: "Identifica materiales mas usados, participacion semanal y alumnos que requieren seguimiento.", c: "blue" },
             ].map(f => {
               const ic: Record<string, string> = { green: "bg-emerald-50 text-emerald-600", blue: "bg-blue-50 text-blue-600", violet: "bg-violet-50 text-violet-600", amber: "bg-amber-50 text-amber-600" };
               return (
@@ -584,13 +584,13 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
       {/* How it works */}
       <section id="how" className="py-20 px-6 bg-gray-50">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-3" style={{ fontFamily: FONT_HEADING }}>Flujo del sistema</h2>
-          <p className="text-center text-muted-foreground text-sm mb-12">De la configuración al primer acceso en tres pasos</p>
+          <h2 className="text-3xl font-bold text-center mb-3" style={{ fontFamily: FONT_HEADING }}>Flujo academico</h2>
+          <p className="text-center text-muted-foreground text-sm mb-12">Del plan de clase al seguimiento del alumno en tres pasos</p>
           <div className="grid md:grid-cols-3 gap-8 relative">
             {[
-              { n: "01", t: "Profesor crea grupo + recursos", d: "Define materia, genera código temporal y registra los URLs de los recursos externos que usará en clase." },
-              { n: "02", t: "Alumno se une con código", d: "El estudiante ingresa el código de su profesor. Acceso instantáneo a los recursos autorizados del grupo." },
-              { n: "03", t: "Monitoreo y auditoría", d: "El profesor visualiza en tiempo real quién accede a qué recurso, con cuánta frecuencia y desde dónde." },
+              { n: "01", t: "El maestro prepara la materia", d: "Crea el grupo, agrega los recursos que usara en clase y define el codigo de acceso para sus alumnos." },
+              { n: "02", t: "Los alumnos se integran", d: "Cada estudiante entra con el codigo del grupo y encuentra los materiales autorizados para su curso." },
+              { n: "03", t: "Seguimiento de aprendizaje", d: "El maestro revisa actividad, consultas y recursos mas visitados para ajustar su clase con evidencia." },
             ].map((s, i) => (
               <div key={s.n} className="relative">
                 <div className="flex items-start gap-3">
@@ -611,12 +611,12 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
       {/* Roles */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-10" style={{ fontFamily: FONT_HEADING }}>Tres roles, una plataforma</h2>
+          <h2 className="text-3xl font-bold text-center mb-10" style={{ fontFamily: FONT_HEADING }}>Roles dentro del entorno academico</h2>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { role: "Estudiante", icon: <BookOpen className="w-6 h-6" />, bg: "border-emerald-200 bg-emerald-50", ic: "bg-emerald-500 text-white", items: ["Login por Matrícula + Código", "Unirse a grupos con código temporal", "Acceder a recursos autorizados", "Consultar historial personal"] },
-              { role: "Profesor", icon: <GraduationCap className="w-6 h-6" />, bg: "border-indigo-200 bg-indigo-50", ic: "bg-indigo-500 text-white", items: ["Crear y gestionar grupos", "Registrar recursos externos", "Verificar disponibilidad de URLs", "Monitorear accesos de alumnos"] },
-              { role: "Administrador", icon: <Shield className="w-6 h-6" />, bg: "border-gray-200 bg-gray-50", ic: "bg-gray-700 text-white", items: ["Administrar usuarios y profesores", "Configurar permisos del sistema", "Ver reportes globales", "Gestionar configuración institucional"] },
+              { role: "Estudiante", icon: <BookOpen className="w-6 h-6" />, bg: "border-emerald-200 bg-emerald-50", ic: "bg-emerald-500 text-white", items: ["Entrar con matricula y codigo", "Unirse a grupos de clase", "Consultar materiales autorizados", "Revisar su historial personal"] },
+              { role: "Maestro", icon: <GraduationCap className="w-6 h-6" />, bg: "border-indigo-200 bg-indigo-50", ic: "bg-indigo-500 text-white", items: ["Crear materias y grupos", "Compartir enlaces academicos", "Verificar disponibilidad de recursos", "Dar seguimiento a sus alumnos"] },
+              { role: "Administrador", icon: <Shield className="w-6 h-6" />, bg: "border-gray-200 bg-gray-50", ic: "bg-gray-700 text-white", items: ["Administrar usuarios institucionales", "Asignar permisos por rol", "Consultar reportes generales", "Configurar datos de la escuela"] },
             ].map(r => (
               <div key={r.role} className={cn("rounded-xl border-2 p-5", r.bg)}>
                 <div className={cn("w-11 h-11 rounded-xl flex items-center justify-center mb-3", r.ic)}>{r.icon}</div>
@@ -639,10 +639,10 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
         <div className="max-w-2xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <PulseDot color="green" />
-            <span className="text-emerald-400 text-xs" style={{ fontFamily: FONT_MONO }}>Sistema en línea</span>
+            <span className="text-emerald-400 text-xs" style={{ fontFamily: FONT_MONO }}>Portal academico disponible</span>
           </div>
-          <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: FONT_HEADING }}>Accede ahora</h2>
-          <p className="text-gray-400 mb-8 text-sm">Inicia sesión con tu matrícula institucional.</p>
+          <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: FONT_HEADING }}>Accede a tu panel docente</h2>
+          <p className="text-gray-400 mb-8 text-sm">Inicia sesion con tu cuenta institucional para gestionar tus grupos y recursos.</p>
           <Btn size="lg" onClick={onLogin}><ArrowRight className="w-4 h-4" />Entrar al sistema</Btn>
         </div>
       </section>
@@ -651,9 +651,9 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Network className="w-4 h-4 text-emerald-500" />
-            <span className="text-gray-500 text-sm" style={{ fontFamily: FONT_HEADING }}>NetTrack</span>
+            <span className="text-gray-500 text-sm" style={{ fontFamily: FONT_HEADING }}>TucanLink</span>
           </div>
-          <p className="text-gray-700 text-xs">© 2024 NetTrack · Plataforma de gestión de recursos educativos universitarios</p>
+          <p className="text-gray-700 text-xs">2024 TucanLink - Plataforma academica para maestros y recursos de clase</p>
         </div>
       </footer>
     </div>
