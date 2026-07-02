@@ -447,7 +447,7 @@ function LandingPage({ onLogin }: { onLogin: () => void }) {
             <div className="w-7 h-7 rounded-md bg-primary flex items-center justify-center">
               <Network className="w-4 h-4 text-white" />
             </div>
-            <span className="text-white font-bold tracking-tight" style={{ fontFamily: FONT_HEADING }}>NetTrack</span>
+            <span className="text-white font-bold tracking-tight" style={{ fontFamily: FONT_HEADING }}>TucanLink</span>
           </div>
           <div className="flex items-center gap-6">
             <a href="#features" className="text-gray-400 hover:text-white text-sm transition-colors hidden sm:block">Características</a>
